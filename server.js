@@ -17,5 +17,5 @@ app.listen(3000);
 // on the specific route is called
 app.get('/', (req, res) => {
     console.log('Route /');
-    res.render('index');
+    res.render('index', { text: 'Number' });
 });
