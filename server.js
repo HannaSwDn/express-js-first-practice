@@ -7,9 +7,6 @@ const app = express();
 // first we are passing in the name of the setting, and then the name of the view engine
 app.set('view engine', 'EJS');
 
-// Here, we are making our app listen for requests to port 3000
-app.listen(3000);
-
 // Since we do not have any routes set up yet, if we now go to localhost:3000/,
 // we will see "Cannot GET /"
 
@@ -20,14 +17,10 @@ app.get('/', (req, res) => {
     res.render('index', { /* Pass down value here */ });
 });
 
-// Creating a user route
-app.get('/users', (req, res) => {
-    console.log('Users route');
-    res.send('User list');
+// We can add /users to the route when requiring it here
+const userRouter = require('./routes/users');
 
-});
+app.use('/users', userRouter);
 
-app.get('/users/new', (req, res) => {
-    console.log('New user route');
-    res.send('New user form');
-});
+// Here, we are making our app listen for requests to port 3000
+app.listen(3000);
