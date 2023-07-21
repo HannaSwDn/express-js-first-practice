@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello <%= text %></h1>
+    <h1><%= locals.text || 'No text to render' %></h1>
 </body>
 </html>
