@@ -19,3 +19,15 @@ app.get('/', (req, res) => {
     console.log('Route /');
     res.render('index', { /* Pass down value here */ });
 });
+
+// Creating a user route
+app.get('/users', (req, res) => {
+    console.log('Users route');
+    res.send('User list');
+
+});
+
+app.get('/users/new', (req, res) => {
+    console.log('New user route');
+    res.send('New user form');
+});
